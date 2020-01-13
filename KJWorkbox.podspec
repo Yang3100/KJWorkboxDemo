@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KJWorkbox"
-  s.version      = "1.0.0"
-  s.summary      = "Some iOS Emitter"
+  s.version      = "1.0.1"
+  s.summary      = "77 toolbox"
   s.homepage     = "https://github.com/yangKJ/KJWorkboxDemo"
   s.license      = "MIT"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://www.jianshu.com/u/c84c00476ab6'
   s.requires_arc = true
   
-  s.default_subspec = 'Workbox' # 默认引入的文件
+  s.default_subspec  = 'Workbox' # 默认引入的文件
   s.ios.source_files = 'KJWorkboxDemo/Workbox/KJWorkboxHeader.h' # 添加头文件
 
   s.subspec 'Workbox' do |y|

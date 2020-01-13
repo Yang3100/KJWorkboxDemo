@@ -22,7 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^KJQRCodeImageBlock)(UIImage *image);
 @interface KJWebDiscernTool : NSObject
 /// 回调获取长按识别的图片
-+ (void)kj_initWithWKWebView:(WKWebView*)webView QRCodeImageBlock:(KJQRCodeImageBlock)block;
+/// WKNavigationDelegate内部实现了该协议，会导致外界的失效
++ (void)kj_initWithWKWebView:(WKWebView*)webView WKNavigationDelegate:(BOOL)delegate QRCodeImageBlock:(KJQRCodeImageBlock)block;
 @end
 
 NS_ASSUME_NONNULL_END

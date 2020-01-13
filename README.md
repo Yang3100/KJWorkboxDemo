@@ -11,7 +11,6 @@
 ### 框架整体介绍
 * [作者信息](#作者信息)
 * [作者其他库](#作者其他库)
-* [功能介绍](#功能介绍)
 * [Cocoapods安装](#Cocoapods安装)
 * [更新日志](#更新日志)
 * [打赏作者 &radic;](#打赏作者)
@@ -47,7 +46,6 @@ pod 'KJLoadingAnimation' # 加载控件
 
 菜单控件 - 下拉控件 选择控件
 pod 'KJMenuView' # 菜单控件
-
 ```
 
 ##### Issue
@@ -61,9 +59,14 @@ pod 'KJWorkbox'
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+#### Add 1.0.1
+1、取出KJNotificationManager当中的AppDelegate扩展
+2、修改KJWebDiscernTool当中的WKNavigationDelegate协议实现与否
+
 #### Add 1.0.0
 1、KJNotificationManager 本地推送工具
 2、KJLoadImageTool 网络图片下载工具
 3、KJJumpControllerTool 跳转控制器工具
 4、KJWebDiscernTool 识别网页图片工具
+
 ```

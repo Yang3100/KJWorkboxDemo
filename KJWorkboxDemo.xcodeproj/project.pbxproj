@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		681477F323C86F6900C2738C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		681477F423C86F6900C2738C /* KJWorkbox.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = KJWorkbox.podspec; sourceTree = SOURCE_ROOT; };
+		681477F423C86F6900C2738C /* KJWorkbox.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KJWorkbox.podspec; sourceTree = SOURCE_ROOT; };
 		6847770C23C70B790021CE42 /* KJWorkboxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJWorkboxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6847770F23C70B790021CE42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6847771023C70B790021CE42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +90,7 @@
 		684D8FDB23C84A4B00D50AD5 /* KJWebDiscernVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJWebDiscernVC.h; sourceTree = "<group>"; };
 		684D8FDC23C84A4B00D50AD5 /* KJWebDiscernVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJWebDiscernVC.m; sourceTree = "<group>"; };
 		684D8FDE23C84B5200D50AD5 /* htmltest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = htmltest.html; sourceTree = "<group>"; };
+		688B7D1D23CC02CB00CB08B4 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +141,7 @@
 		6847770E23C70B790021CE42 /* KJWorkboxDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6847775123C70DE60021CE42 /* Wrokbox */,
+				6847775123C70DE60021CE42 /* Workbox */,
 				6847775023C70DCD0021CE42 /* TestDemo */,
 				6847774923C70D420021CE42 /* Base */,
 				6847774523C70D3F0021CE42 /* UINavigationController */,
@@ -155,6 +156,7 @@
 				6847775323C70E660021CE42 /* PrefixHeader.pch */,
 				6847771B23C70B7B0021CE42 /* Assets.xcassets */,
 				6847771D23C70B7B0021CE42 /* LaunchScreen.storyboard */,
+				688B7D1D23CC02CB00CB08B4 /* Macros.h */,
 				6847772023C70B7B0021CE42 /* Info.plist */,
 				6847772123C70B7B0021CE42 /* main.m */,
 				681477F423C86F6900C2738C /* KJWorkbox.podspec */,
@@ -213,7 +215,7 @@
 			path = TestDemo;
 			sourceTree = "<group>";
 		};
-		6847775123C70DE60021CE42 /* Wrokbox */ = {
+		6847775123C70DE60021CE42 /* Workbox */ = {
 			isa = PBXGroup;
 			children = (
 				6847775223C70E220021CE42 /* KJWorkboxHeader.h */,
@@ -222,7 +224,7 @@
 				684D8FCC23C8057500D50AD5 /* LoadImageTool */,
 				6847775523C70F0A0021CE42 /* NotificationManager */,
 			);
-			path = Wrokbox;
+			path = Workbox;
 			sourceTree = "<group>";
 		};
 		6847775523C70F0A0021CE42 /* NotificationManager */ = {

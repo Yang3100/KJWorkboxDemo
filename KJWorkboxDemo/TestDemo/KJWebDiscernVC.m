@@ -47,7 +47,7 @@
     [self.view addSubview:self.webView];
     [self.view addSubview:self.imageView];
     __weak typeof(self) weakself = self;
-    [KJWebDiscernTool kj_initWithWKWebView:self.webView QRCodeImageBlock:^(UIImage * _Nonnull image) {
+    [KJWebDiscernTool kj_initWithWKWebView:self.webView WKNavigationDelegate:NO QRCodeImageBlock:^(UIImage * _Nonnull image) {
         weakself.imageView.image = image;
     }];
 }
