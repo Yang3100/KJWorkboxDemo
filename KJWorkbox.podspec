@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
   s.ios.source_files = 'KJWorkboxDemo/Workbox/KJWorkboxHeader.h' # 添加头文件
 
   s.subspec 'Box' do |y|
-    y.source_files = "KJWorkboxDemo/Workbox/Box/**/*.{h,m}" # 添加文件
-    y.public_header_files = "KJWorkboxDemo/Workbox/Box/**/*.h" # 添加头文件
+    y.source_files = "KJWorkboxDemo/Workbox/**/*.{h,m}" # 添加文件
+    y.public_header_files = "KJWorkboxDemo/Workbox/**/*.h" # 添加头文件
     y.frameworks = 'Foundation','UIKit'
   end
   
   s.subspec 'CommonBox' do |fun|
-    fun.source_files = "KJWorkboxDemo/Workbox/CommonBox/**/*.{h,m}" # 添加文件
-    fun.public_header_files = "KJWorkboxDemo/Workbox/CommonBox/**/*.h" # 添加头文件
+    fun.source_files = "KJWorkboxDemo/CommonBox/**/*.{h,m}" # 添加文件
+    fun.public_header_files = "KJWorkboxDemo/CommonBox/**/*.h" # 添加头文件
     fun.dependency 'KJWorkbox/Box'
   end
   
