@@ -21,9 +21,9 @@
     /// 注册远端APNs和本地消息通知
     [KJNotificationManager kj_registerNotification];
     
-//    [KJNotificationManager kj_getDeviceTokenData:^(NSData * _Nonnull data) {
-//        NSLog(@"deviceToken:%@",[KJNotificationManager kj_deviceTokenTransformWithData:data]);
-//    }];
+    [KJNotificationManager kj_getDeviceTokenData:^(NSData * _Nonnull data) {
+        NSLog(@"deviceToken:%@",[KJNotificationManager kj_deviceTokenTransformWithData:data]);
+    }];
     
     [KJNotificationManager kj_getNotificationDatas:^(KJReceiveNotificationType receiveType, KJNotificationType type, UNNotification * _Nonnull notification) {
         NSLog(@"body:%@",notification.request.content.body);

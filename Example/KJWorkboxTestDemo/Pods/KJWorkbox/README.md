@@ -53,12 +53,17 @@ pod 'KJMenuView' # 菜单控件
 
 #### <a id="Cocoapods安装"></a>Cocoapods安装
 ```
-pod 'KJWorkbox'
+pod 'KJWorkbox' # 系统工具
+pod 'KJWorkbox/CommonBox' # 常用工具
 ```
 
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+#### Add 1.0.2
+1、重新分类工具项目，Box存放系统工具，CommonBox存放常用工具
+2、默认pod系统工具
+
 #### Add 1.0.1
 1、取出KJNotificationManager当中的AppDelegate扩展
 2、修改KJWebDiscernTool当中的WKNavigationDelegate协议实现与否

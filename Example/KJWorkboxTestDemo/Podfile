@@ -8,6 +8,7 @@ target 'KJWorkboxTestDemo' do
   # Pods for KJWorkboxTestDemo
 
 pod 'KJWorkbox'
+#pod 'KJWorkbox/CommonBox'
 
   target 'KJWorkboxTestDemoTests' do
     inherit! :search_paths

@@ -1,7 +1,7 @@
 PODS:
-  - KJWorkbox (1.0.1):
-    - KJWorkbox/Workbox (= 1.0.1)
-  - KJWorkbox/Workbox (1.0.1)
+  - KJWorkbox (1.0.2):
+    - KJWorkbox/Box (= 1.0.2)
+  - KJWorkbox/Box (1.0.2)
 
 DEPENDENCIES:
   - KJWorkbox
@@ -11,8 +11,8 @@ SPEC REPOS:
     - KJWorkbox
 
 SPEC CHECKSUMS:
-  KJWorkbox: 1b9d2e1427ef1f3b13a72885e69b29c58c42ec85
+  KJWorkbox: 6b5114df122b8b98b486442fb3d9fef8349b960a
 
-PODFILE CHECKSUM: a18837a59564a3f2cc6baf5f603890921ef1d1ed
+PODFILE CHECKSUM: 883c124ec122fc766ff7bca92e18a4f63fd2ea11
 
 COCOAPODS: 1.9.0.beta.2
