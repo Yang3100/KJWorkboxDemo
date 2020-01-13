@@ -1,0 +1,6 @@
+framework module KJWorkbox {
+  umbrella header "KJWorkbox-umbrella.h"
+
+  export *
+  module * { export * }
+}

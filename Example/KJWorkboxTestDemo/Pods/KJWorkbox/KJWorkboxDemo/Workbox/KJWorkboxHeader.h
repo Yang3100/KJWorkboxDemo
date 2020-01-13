@@ -31,10 +31,6 @@
  > 博客地址：https://blog.csdn.net/qq_34534179
 
  ####版本更新日志:
- #### Add 1.0.2
- 1、重新分类工具项目，Box存放系统工具，CommonBox存放常用工具
- 2、默认pod系统工具
- 
  #### Add 1.0.1
  1、取出KJNotificationManager当中的AppDelegate扩展
  2、修改KJWebDiscernTool当中的WKNavigationDelegate协议实现与否
@@ -50,11 +46,7 @@
 #ifndef KJWorkboxHeader_h
 #define KJWorkboxHeader_h
 
-/*------------------------ 系统工具 ------------------------*/
-#import "KJNotificationManager.h" // 推送工具
-
-
-/*------------------------ 常用工具 ------------------------*/
+//#import "KJNotificationManager.h" // 本地推送工具
 //#import "KJLoadImageTool.h" // 网络图片下载工具
 //#import "KJJumpControllerTool.h" // 跳转控制器工具
 //#import "KJWebDiscernTool.h" // 识别网页图片工具
