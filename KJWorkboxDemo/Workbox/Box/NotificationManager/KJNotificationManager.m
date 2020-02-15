@@ -7,39 +7,40 @@
 //
 
 #import "KJNotificationManager.h"
-#if __has_include("AppDelegate.h")
-#import "AppDelegate.h"
-#import <objc/runtime.h>
-@interface AppDelegate (KJNotification)
-- (void)kj_deviceTokenData:(void(^)(NSData *data))completion;
-@end
+//#import <objc/runtime.h>
+//
+//NS_ASSUME_NONNULL_BEGIN
+//
+//@interface AppDelegate (KJNotification)
+//- (void)kj_deviceTokenData:(void(^)(NSData *data))completion;
+//@end
+//
+//NS_ASSUME_NONNULL_END
+//
+//@interface AppDelegate ()
+//@property(nonatomic,copy) void(^kDeviceTokenCompletion)(NSData *data);
+//@end
+//@implementation AppDelegate (KJNotification)
+//- (void(^)(NSData *data))kDeviceTokenCompletion{
+//    return objc_getAssociatedObject(self, @selector(kDeviceTokenCompletion));
+//}
+//- (void)setKDeviceTokenCompletion:(void (^)(NSData *))kDeviceTokenCompletion{
+//    objc_setAssociatedObject(self, @selector(kDeviceTokenCompletion), kDeviceTokenCompletion, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+///// 获取Token
+//- (void)kj_deviceTokenData:(void(^)(NSData *data))completion{
+//    self.kDeviceTokenCompletion = completion;
+//}
+//#pragma mark - UIApplicationDelegate
+////获取到deviceToken
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+//    if (deviceToken) {
+//        !self.kDeviceTokenCompletion?:self.kDeviceTokenCompletion(deviceToken);
+//    }
+//}
+//
+//@end
 
-@interface AppDelegate ()
-@property(nonatomic,copy) void(^kDeviceTokenCompletion)(NSData *data);
-@end
-@implementation AppDelegate (KJNotification)
-- (void(^)(NSData *data))kDeviceTokenCompletion{
-    return objc_getAssociatedObject(self, @selector(kDeviceTokenCompletion));
-}
-- (void)setKDeviceTokenCompletion:(void (^)(NSData *))kDeviceTokenCompletion{
-    objc_setAssociatedObject(self, @selector(kDeviceTokenCompletion), kDeviceTokenCompletion, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-/// 获取Token
-- (void)kj_deviceTokenData:(void(^)(NSData *data))completion{
-    self.kDeviceTokenCompletion = completion;
-}
-#pragma mark - UIApplicationDelegate
-//获取到deviceToken
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    if (deviceToken) {
-        !self.kDeviceTokenCompletion?:self.kDeviceTokenCompletion(deviceToken);
-    }
-}
-
-@end
-#else
-// 不包含相关文件
-#endif
 
 @interface KJNotificationManager ()<UNUserNotificationCenterDelegate>
 @property(nonatomic,strong,class) kNotificationCompletion xxblock;
@@ -160,20 +161,15 @@ void kj_clearLocalityBadge(NSTimeInterval timeInterval){
         }
     }
 }
-
-#if __has_include("AppDelegate.h")
-/// 获取设备Token
-+ (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [appDelegate kj_deviceTokenData:^(NSData * _Nonnull data) {
-            completion(data);
-        }];
-    });
-}
-#else
-#endif
-
+///// 获取设备Token
+//+ (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion{
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//        [appDelegate kj_deviceTokenData:^(NSData * _Nonnull data) {
+//            completion(data);
+//        }];
+//    });
+//}
 /// 转换设备Token
 + (NSString*)kj_deviceTokenTransformWithData:(NSData*)deviceToken{
     if (![deviceToken isKindOfClass:[NSData class]]) return nil;

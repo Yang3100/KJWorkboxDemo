@@ -79,6 +79,8 @@
         NSMutableArray *temp2 = [NSMutableArray array];
         [temp2 addObject:@{@"VCName":@"KJLoadImageVC",@"describeName":@"网络下载图片演示",@"params":@{}}];
         [temp2 addObject:@{@"VCName":@"KJWebDiscernVC",@"describeName":@"长按识别网页当中图片",@"params":@{}}];
+        [temp2 addObject:@{@"VCName":@"KJPredicateVC",@"describeName":@"谓词相关工具",@"params":@{}}];
+        [temp2 addObject:@{@"VCName":@"KJCommonCryptoVC",@"describeName":@"加密解密工具演示",@"params":@{}}];
         
         [_temps addObject:temp1];
         [_temps addObject:temp2];

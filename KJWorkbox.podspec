@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KJWorkbox"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "77 toolbox"
   s.homepage     = "https://github.com/yangKJ/KJWorkboxDemo"
   s.license      = "MIT"

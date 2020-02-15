@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		681477F523C86F6900C2738C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 681477F323C86F6900C2738C /* README.md */; };
 		681477F623C86F6900C2738C /* KJWorkbox.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 681477F423C86F6900C2738C /* KJWorkbox.podspec */; };
+		6831E89223D14CBE00C0A806 /* KJCommonCryptoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831E89123D14CBE00C0A806 /* KJCommonCryptoTool.m */; };
 		6847771123C70B790021CE42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847771023C70B790021CE42 /* AppDelegate.m */; };
 		6847771423C70B790021CE42 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847771323C70B790021CE42 /* SceneDelegate.m */; };
 		6847771723C70B790021CE42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847771623C70B790021CE42 /* ViewController.m */; };
@@ -22,12 +23,16 @@
 		6847774F23C70DA90021CE42 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847774E23C70DA90021CE42 /* BaseViewController.m */; };
 		6847775823C70F860021CE42 /* KJNotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847775723C70F860021CE42 /* KJNotificationVC.m */; };
 		6847775B23C70FB50021CE42 /* KJNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847775923C70FB50021CE42 /* KJNotificationManager.m */; };
-		684D8FCF23C805A200D50AD5 /* KJLoadImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FCE23C805A200D50AD5 /* KJLoadImageTool.m */; };
+		684D8FCF23C805A200D50AD5 /* KJDownloadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FCE23C805A200D50AD5 /* KJDownloadTool.m */; };
 		684D8FD223C8206100D50AD5 /* KJLoadImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FD123C8206100D50AD5 /* KJLoadImageVC.m */; };
 		684D8FD623C8261500D50AD5 /* KJJumpControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FD423C8261500D50AD5 /* KJJumpControllerTool.m */; };
 		684D8FDA23C82AF300D50AD5 /* KJWebDiscernTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FD923C82AF300D50AD5 /* KJWebDiscernTool.m */; };
 		684D8FDD23C84A4B00D50AD5 /* KJWebDiscernVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 684D8FDC23C84A4B00D50AD5 /* KJWebDiscernVC.m */; };
 		684D8FDF23C84B5200D50AD5 /* htmltest.html in Resources */ = {isa = PBXBuildFile; fileRef = 684D8FDE23C84B5200D50AD5 /* htmltest.html */; };
+		6897FE0523D15B130052A460 /* KJPredicateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6897FE0423D15B130052A460 /* KJPredicateTool.m */; };
+		6897FE0823D15BA40052A460 /* KJPredicateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6897FE0723D15BA40052A460 /* KJPredicateVC.m */; };
+		6897FE0C23D15F100052A460 /* KJCommonCryptoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6897FE0A23D15F100052A460 /* KJCommonCryptoVC.m */; };
+		6897FE0D23D15F100052A460 /* KJCommonCryptoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6897FE0B23D15F100052A460 /* KJCommonCryptoVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,8 @@
 /* Begin PBXFileReference section */
 		681477F323C86F6900C2738C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		681477F423C86F6900C2738C /* KJWorkbox.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KJWorkbox.podspec; sourceTree = SOURCE_ROOT; };
+		6831E89023D14CBE00C0A806 /* KJCommonCryptoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJCommonCryptoTool.h; sourceTree = "<group>"; };
+		6831E89123D14CBE00C0A806 /* KJCommonCryptoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJCommonCryptoTool.m; sourceTree = "<group>"; };
 		6847770C23C70B790021CE42 /* KJWorkboxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJWorkboxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6847770F23C70B790021CE42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6847771023C70B790021CE42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,8 +86,8 @@
 		6847775723C70F860021CE42 /* KJNotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJNotificationVC.m; sourceTree = "<group>"; };
 		6847775923C70FB50021CE42 /* KJNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJNotificationManager.m; sourceTree = "<group>"; };
 		6847775A23C70FB50021CE42 /* KJNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJNotificationManager.h; sourceTree = "<group>"; };
-		684D8FCD23C805A200D50AD5 /* KJLoadImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJLoadImageTool.h; sourceTree = "<group>"; };
-		684D8FCE23C805A200D50AD5 /* KJLoadImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJLoadImageTool.m; sourceTree = "<group>"; };
+		684D8FCD23C805A200D50AD5 /* KJDownloadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJDownloadTool.h; sourceTree = "<group>"; };
+		684D8FCE23C805A200D50AD5 /* KJDownloadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJDownloadTool.m; sourceTree = "<group>"; };
 		684D8FD023C8206100D50AD5 /* KJLoadImageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJLoadImageVC.h; sourceTree = "<group>"; };
 		684D8FD123C8206100D50AD5 /* KJLoadImageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJLoadImageVC.m; sourceTree = "<group>"; };
 		684D8FD423C8261500D50AD5 /* KJJumpControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJJumpControllerTool.m; sourceTree = "<group>"; };
@@ -91,6 +98,13 @@
 		684D8FDC23C84A4B00D50AD5 /* KJWebDiscernVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJWebDiscernVC.m; sourceTree = "<group>"; };
 		684D8FDE23C84B5200D50AD5 /* htmltest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = htmltest.html; sourceTree = "<group>"; };
 		688B7D1D23CC02CB00CB08B4 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		6897FE0323D15B130052A460 /* KJPredicateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJPredicateTool.h; sourceTree = "<group>"; };
+		6897FE0423D15B130052A460 /* KJPredicateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJPredicateTool.m; sourceTree = "<group>"; };
+		6897FE0623D15BA40052A460 /* KJPredicateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJPredicateVC.h; sourceTree = "<group>"; };
+		6897FE0723D15BA40052A460 /* KJPredicateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJPredicateVC.m; sourceTree = "<group>"; };
+		6897FE0923D15F100052A460 /* KJCommonCryptoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJCommonCryptoVC.h; sourceTree = "<group>"; };
+		6897FE0A23D15F100052A460 /* KJCommonCryptoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJCommonCryptoVC.m; sourceTree = "<group>"; };
+		6897FE0B23D15F100052A460 /* KJCommonCryptoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KJCommonCryptoVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6831E88F23D14C5700C0A806 /* CommonCryptoTool */ = {
+			isa = PBXGroup;
+			children = (
+				6831E89023D14CBE00C0A806 /* KJCommonCryptoTool.h */,
+				6831E89123D14CBE00C0A806 /* KJCommonCryptoTool.m */,
+			);
+			path = CommonCryptoTool;
+			sourceTree = "<group>";
+		};
 		6847770323C70B790021CE42 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +234,11 @@
 				684D8FD123C8206100D50AD5 /* KJLoadImageVC.m */,
 				684D8FDB23C84A4B00D50AD5 /* KJWebDiscernVC.h */,
 				684D8FDC23C84A4B00D50AD5 /* KJWebDiscernVC.m */,
+				6897FE0623D15BA40052A460 /* KJPredicateVC.h */,
+				6897FE0723D15BA40052A460 /* KJPredicateVC.m */,
+				6897FE0923D15F100052A460 /* KJCommonCryptoVC.h */,
+				6897FE0A23D15F100052A460 /* KJCommonCryptoVC.m */,
+				6897FE0B23D15F100052A460 /* KJCommonCryptoVC.xib */,
 			);
 			path = TestDemo;
 			sourceTree = "<group>";
@@ -237,8 +265,8 @@
 		684D8FCC23C8057500D50AD5 /* LoadImageTool */ = {
 			isa = PBXGroup;
 			children = (
-				684D8FCD23C805A200D50AD5 /* KJLoadImageTool.h */,
-				684D8FCE23C805A200D50AD5 /* KJLoadImageTool.m */,
+				684D8FCD23C805A200D50AD5 /* KJDownloadTool.h */,
+				684D8FCE23C805A200D50AD5 /* KJDownloadTool.m */,
 			);
 			path = LoadImageTool;
 			sourceTree = "<group>";
@@ -280,11 +308,22 @@
 		688E344223CC19E6007C9A0D /* CommonBox */ = {
 			isa = PBXGroup;
 			children = (
+				6897FE0223D15AFF0052A460 /* Predicate */,
+				6831E88F23D14C5700C0A806 /* CommonCryptoTool */,
 				684D8FD723C82AE000D50AD5 /* WebDiscernTool */,
 				684D8FD323C825F300D50AD5 /* JumpControllerTool */,
 				684D8FCC23C8057500D50AD5 /* LoadImageTool */,
 			);
 			path = CommonBox;
+			sourceTree = "<group>";
+		};
+		6897FE0223D15AFF0052A460 /* Predicate */ = {
+			isa = PBXGroup;
+			children = (
+				6897FE0323D15B130052A460 /* KJPredicateTool.h */,
+				6897FE0423D15B130052A460 /* KJPredicateTool.m */,
+			);
+			path = Predicate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +435,7 @@
 				681477F523C86F6900C2738C /* README.md in Resources */,
 				6847771C23C70B7B0021CE42 /* Assets.xcassets in Resources */,
 				6847771A23C70B790021CE42 /* Main.storyboard in Resources */,
+				6897FE0D23D15F100052A460 /* KJCommonCryptoVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,17 +461,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				684D8FD623C8261500D50AD5 /* KJJumpControllerTool.m in Sources */,
-				684D8FCF23C805A200D50AD5 /* KJLoadImageTool.m in Sources */,
+				684D8FCF23C805A200D50AD5 /* KJDownloadTool.m in Sources */,
 				684D8FDA23C82AF300D50AD5 /* KJWebDiscernTool.m in Sources */,
 				6847774823C70D3F0021CE42 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				6847775B23C70FB50021CE42 /* KJNotificationManager.m in Sources */,
 				684D8FDD23C84A4B00D50AD5 /* KJWebDiscernVC.m in Sources */,
 				6847774F23C70DA90021CE42 /* BaseViewController.m in Sources */,
+				6831E89223D14CBE00C0A806 /* KJCommonCryptoTool.m in Sources */,
+				6897FE0C23D15F100052A460 /* KJCommonCryptoVC.m in Sources */,
 				6847771723C70B790021CE42 /* ViewController.m in Sources */,
+				6897FE0823D15BA40052A460 /* KJPredicateVC.m in Sources */,
 				684D8FD223C8206100D50AD5 /* KJLoadImageVC.m in Sources */,
 				6847771123C70B790021CE42 /* AppDelegate.m in Sources */,
 				6847772223C70B7B0021CE42 /* main.m in Sources */,
 				6847771423C70B790021CE42 /* SceneDelegate.m in Sources */,
+				6897FE0523D15B130052A460 /* KJPredicateTool.m in Sources */,
 				6847775823C70F860021CE42 /* KJNotificationVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

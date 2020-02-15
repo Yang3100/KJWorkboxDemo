@@ -7,10 +7,21 @@
 //
 
 #import "KJLoadImageVC.h"
-#import "KJLoadImageTool.h"
+#import "KJDownloadTool.h"
+
+@interface KJImageView : UIImageView
+@property (nonatomic,strong) NSString *url;
+@end
+@implementation KJImageView
+- (void)setUrl:(NSString *)url{
+    
+}
+
+@end
 
 @interface KJLoadImageVC ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSMutableArray <UIView *>*selectedViewArray;
 
@@ -25,46 +36,57 @@
 }
 
 - (void)setUI{
+    __weak typeof(self) weakself = self;
     [self setDemoTitle:@"单图"];
     CGFloat w = self.view.frame.size.width;
+    __block UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, w-30, 40)];
+    label2.textColor = UIColor.greenColor;
+    label2.font = [UIFont systemFontOfSize:12];
+    label2.numberOfLines = 2;
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 135, w-30, 150)];
+    label2.center = _imageView.center;
     _imageView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:_imageView];
+    [self.view addSubview:label2];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *data = [KJLoadImageTool kj_downloadDataWithURL:self.images[0]];
-        dispatch_async(dispatch_get_main_queue(), ^{        
+        NSData *data = [KJDownloadTool kj_downloadDataWithURL:self.images[0]];
+        dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = [UIImage imageWithData:data];
         });
     });
+    KJDownloadTool.progressblock = ^(unsigned long long totalLength, unsigned long long currentLength) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            label2.text = [NSString stringWithFormat:@"当前进度：%.2llu \n总大小：%.2llu",currentLength,totalLength];
+        });
+    };
     
     [self setDemoTitle:@"多图"];
-    CGFloat wh = 80;
-    CGFloat x =  15;
-    CGFloat margin = ([UIScreen mainScreen].bounds.size.width - 4 * 80 - x * 2) / 3;
+    CGFloat margin = 10;
+    CGFloat wh = ([UIScreen mainScreen].bounds.size.width - 4 * margin) / 3;
     _selectedViewArray = [NSMutableArray array];
     for (int i = 0 ; i < self.images.count; i ++) {
-        int indexX = i % 4;
-        int indexY = i / 4;
-        __block UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x + indexX  * (wh + margin), 335 + indexY * (wh + 15), wh, wh)];
+        int indexX = i % 3;
+        int indexY = i / 3;
+        __block UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(indexX  * (wh + margin) + margin, 335 + indexY * (wh + 15), wh, wh)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.view addSubview:imageView];
         imageView.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1];
         imageView.tag = i;
-        [KJLoadImageTool kj_loadImageWithURL:self.images[i] Complete:^(UIImage * _Nullable image) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = image;
-            });
+        [KJDownloadTool kj_loadImageWithURL:weakself.images[i] Complete:^(UIImage * _Nullable image) {
+            imageView.image = image;
+            weakself.label.text = [NSString stringWithFormat:@"缓存大小 : %.2fMB",[KJDownloadTool kj_imagesCacheSize]/1024/1024.0];
         }];
         [_selectedViewArray addObject:imageView];
     }
     
     __block UILabel *label = [UILabel new];
+    self.label = label;
     [self.view addSubview:label];
     label.frame = CGRectMake(w-300-15, 64+30, 300, 30);
     label.textColor = self.view.tintColor;
     label.textAlignment = NSTextAlignmentRight;
     label.font = [UIFont systemFontOfSize:15];
-    label.text = [NSString stringWithFormat:@"缓存大小 : %.2fkb",[KJLoadImageTool kj_imagesCacheSize]];
+    label.text = [NSString stringWithFormat:@"缓存大小 : %lldMB",[KJDownloadTool kj_imagesCacheSize]/1024/1024];
     
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
     button.frame = CGRectMake(w-100, 64, 100, 30);
@@ -73,10 +95,12 @@
     button.titleLabel.font = [UIFont systemFontOfSize:15];
     button.titleLabel.textAlignment = NSTextAlignmentRight;
     [self.view addSubview:button];
-//    [button kj_addAction:^(UIButton * _Nonnull kButton) {
-//        [KJLoadImageTool kj_clearImagesCache];
-//        label.text = [NSString stringWithFormat:@"缓存大小 : %.2fkb",[KJLoadImageTool kj_imagesCacheSize]];
-//    }];
+    [button addTarget:self action:@selector(clearImagesCache) forControlEvents:(UIControlEventTouchUpInside)];
+}
+
+- (void)clearImagesCache{
+    [KJDownloadTool kj_clearImagesCache];
+    self.label.text = @"缓存大小：0MB";
 }
 
 - (void)setDemoTitle:(NSString *)title{

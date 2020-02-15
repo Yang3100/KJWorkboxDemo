@@ -19,7 +19,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    KJNotificationManager *manager = [KJNotificationManager sharedInstance];
+    manager.title = @"普通推送";
+//        manager.subTitle = @"小标题";
+    manager.body = @"test1234u";
+    manager.timeInterval = 3;
+    manager.identifier = @"123dc233ca924d7034b05dbc7abe8dfbdaf32ffd";
+    [manager kj_sendLocalityMassageWithNotificationType:(KJLocalityNotificationTypeCustom)];
+
 }
 
 

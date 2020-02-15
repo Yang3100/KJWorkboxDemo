@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <KJWorkbox/KJWorkboxHeader.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    /// 注册远端APNs和本地消息通知
+    [KJNotificationManager kj_registerNotification];
+    
+    [KJNotificationManager kj_getNotificationDatas:^(KJReceiveNotificationType receiveType, KJNotificationType type, UNNotification * _Nonnull notification) {
+        NSLog(@"body:%@",notification.request.content.body);
+    }];
+    
     return YES;
 }
 

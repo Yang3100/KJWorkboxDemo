@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
 #import <CoreLocation/CoreLocation.h>
+//#import "AppDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -82,14 +83,63 @@ typedef void(^kNotificationCompletion)(KJReceiveNotificationType receiveType,KJN
 #pragma mark - 工具相关
 /// 清除本地角标
 void kj_clearLocalityBadge(NSTimeInterval timeInterval);
+/// 获取设备Token
+//+ (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion;
 /// 转换设备Token
 + (NSString*)kj_deviceTokenTransformWithData:(NSData*)deviceToken;
-#if __has_include("AppDelegate.h")
-/// 获取设备Token
-+ (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion;
-#else
-#endif
 
 @end
+
+
+/*提供一套获取设备token的AppDelegate扩展
+ /// 获取设备Token
+ + (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion;
+
+ /// 获取设备Token
+ + (void)kj_getDeviceTokenData:(void(^)(NSData *data))completion{
+     dispatch_async(dispatch_get_main_queue(), ^{
+         AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+         [appDelegate kj_deviceTokenData:^(NSData * _Nonnull data) {
+             completion(data);
+         }];
+     });
+ }
+ 
+ /// AppDelegate扩展获取设备Token ------------------------------
+ #import <objc/runtime.h>
+
+ NS_ASSUME_NONNULL_BEGIN
+
+ @interface AppDelegate (KJNotification)
+ - (void)kj_deviceTokenData:(void(^)(NSData *data))completion;
+ @end
+
+ NS_ASSUME_NONNULL_END
+
+ @interface AppDelegate ()
+ @property(nonatomic,copy) void(^kDeviceTokenCompletion)(NSData *data);
+ @end
+ @implementation AppDelegate (KJNotification)
+ - (void(^)(NSData *data))kDeviceTokenCompletion{
+     return objc_getAssociatedObject(self, @selector(kDeviceTokenCompletion));
+ }
+ - (void)setKDeviceTokenCompletion:(void (^)(NSData *))kDeviceTokenCompletion{
+     objc_setAssociatedObject(self, @selector(kDeviceTokenCompletion), kDeviceTokenCompletion, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+ }
+ /// 获取Token
+ - (void)kj_deviceTokenData:(void(^)(NSData *data))completion{
+     self.kDeviceTokenCompletion = completion;
+ }
+ #pragma mark - UIApplicationDelegate
+ //获取到deviceToken
+ - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+     if (deviceToken) {
+         !self.kDeviceTokenCompletion?:self.kDeviceTokenCompletion(deviceToken);
+     }
+ }
+
+ @end
+ 
+ */
 
 NS_ASSUME_NONNULL_END

@@ -12,6 +12,9 @@
 
 #import "KJWorkboxHeader.h"
 #import "KJNotificationManager.h"
+#import "KJJumpControllerTool.h"
+#import "KJLoadImageTool.h"
+#import "KJWebDiscernTool.h"
 
 FOUNDATION_EXPORT double KJWorkboxVersionNumber;
 FOUNDATION_EXPORT const unsigned char KJWorkboxVersionString[];

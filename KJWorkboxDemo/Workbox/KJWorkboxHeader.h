@@ -31,8 +31,11 @@
  > 博客地址：https://blog.csdn.net/qq_34534179
 
  ####版本更新日志:
- #### Add 1.0.3
- 1、引入__has_include宏，处理AppDelegate分类问题
+ #### Add 1.0.4
+ 1、引入__has_include宏
+ 2、修改网络下载工具
+ 3、KJCommonCryptoTool 新增加密解密工具
+ 4、KJPredicateTool 新增谓词工具
  
  #### Add 1.0.2
  1、重新分类工具项目，Box存放系统工具，CommonBox存放常用工具
@@ -40,7 +43,7 @@
  
  #### Add 1.0.0
  1、KJNotificationManager 本地推送工具
- 2、KJLoadImageTool 网络图片下载工具
+ 2、KJDownloadTool 网络下载工具
  3、KJJumpControllerTool 跳转控制器工具
  4、KJWebDiscernTool 识别网页图片工具
 
@@ -53,10 +56,12 @@
 #import "KJNotificationManager.h" // 推送工具
 
 /// 常用工具 - 以下工具需要 pod 'KJWorkbox/CommonBox'
-#if __has_include(<KJWorkbox/KJLoadImageTool.h>)
-#import "KJLoadImageTool.h" // 网络图片下载工具
+#if __has_include(<KJWorkbox/KJDownloadTool.h>)
+#import "KJDownloadTool.h" // 网络下载工具
 #import "KJJumpControllerTool.h" // 跳转控制器工具
 #import "KJWebDiscernTool.h" // 识别网页图片工具
+#import "KJCommonCryptoTool.h" // 加密解密工具
+#import "KJPredicateTool.h"// 谓词工具
 #else
 // 不包含相关文件
 #endif

@@ -9,6 +9,22 @@
 #import "KJWebDiscernVC.h"
 #import "KJWebDiscernTool.h"
 
+@interface ImageViewController : UIViewController
+@property(nonatomic,strong) UIImage *image;
+@end
+@implementation ImageViewController
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    self.view.backgroundColor = UIColor.whiteColor;
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:imgView];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.image = self.image;
+}
+
+@end
+
 // WKWebView 内存不释放的问题解决
 @interface WeakWebViewScriptMessageDelegate : NSObject<WKScriptMessageHandler>
 //WKScriptMessageHandler 这个协议类专门用来处理JavaScript调用原生OC的方法
@@ -36,7 +52,6 @@
 
 @interface KJWebDiscernVC ()<WKScriptMessageHandler,WKUIDelegate,WKNavigationDelegate>
 @property (nonatomic, strong) WKWebView *webView;
-@property (nonatomic, strong) UIImageView *imageView;
 @end
 
 @implementation KJWebDiscernVC
@@ -45,10 +60,11 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.webView];
-    [self.view addSubview:self.imageView];
     __weak typeof(self) weakself = self;
     [KJWebDiscernTool kj_initWithWKWebView:self.webView WKNavigationDelegate:NO QRCodeImageBlock:^(UIImage * _Nonnull image) {
-        weakself.imageView.image = image;
+        ImageViewController *vc = [ImageViewController new];
+        vc.image = image;
+        [weakself.navigationController pushViewController:vc animated:YES];
     }];
 }
     
@@ -252,7 +268,7 @@
         WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jsString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         [config.userContentController addUserScript:wkUScript];
         
-        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height*2/3) configuration:config];
+        _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
         // UI代理
         _webView.UIDelegate = self;
         // 导航代理
@@ -268,14 +284,6 @@
         [_webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
     }
     return _webView;
-}
-- (UIImageView*)imageView{
-    if (!_imageView) {
-        CGFloat h = self.view.frame.size.height;
-        _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, h*2/3, self.view.frame.size.width, h/3)];
-        _imageView.backgroundColor = UIColor.cyanColor;
-    }
-    return _imageView;
 }
 
 @end

@@ -60,13 +60,12 @@ pod 'KJWorkbox/CommonBox' # 常用工具
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+#### Add 1.0.3
+1、引入__has_include宏，处理AppDelegate分类问题
+
 #### Add 1.0.2
 1、重新分类工具项目，Box存放系统工具，CommonBox存放常用工具
 2、默认pod系统工具
-
-#### Add 1.0.1
-1、取出KJNotificationManager当中的AppDelegate扩展
-2、修改KJWebDiscernTool当中的WKNavigationDelegate协议实现与否
 
 #### Add 1.0.0
 1、KJNotificationManager 本地推送工具

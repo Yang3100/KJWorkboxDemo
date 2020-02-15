@@ -25,7 +25,6 @@
 
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
-工具集合
 - 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
 - 手势封装、圆角渐变、Xib属性、TextView输入框扩展、限制字数、识别网址超链接，
 - Image图片加工处理、滤镜渲染、泛洪算法等等
@@ -60,8 +59,10 @@ pod 'KJWorkbox/CommonBox' # 常用工具
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
-#### Add 1.0.3
-1、引入__has_include宏，处理AppDelegate分类问题
+#### Add 1.0.4
+1、引入__has_include宏
+2、修改网络下载工具
+3、KJCommonCryptoTool 新增加密解密工具
 
 #### Add 1.0.2
 1、重新分类工具项目，Box存放系统工具，CommonBox存放常用工具
@@ -69,7 +70,7 @@ pod 'KJWorkbox/CommonBox' # 常用工具
 
 #### Add 1.0.0
 1、KJNotificationManager 本地推送工具
-2、KJLoadImageTool 网络图片下载工具
+2、KJDownloadTool 网络下载工具
 3、KJJumpControllerTool 跳转控制器工具
 4、KJWebDiscernTool 识别网页图片工具
 
